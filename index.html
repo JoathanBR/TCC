@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>TCC</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div class="container">
+        <h1>Exemplo de dApp</h1>
+        <h2 id="resultado"></h2>
+        <label for="enderecoDaConta" class="col-lg-2 control-label">Hash da Conta de acesso:</label>
+		<h4 id="enderecoDaConta"></h4>
+        
+        <label for="nome" class="col-lg-2 control-label">Nome</label>
+        <input id="nome" type="text">
+		
+        <button id="button1">Enviar</button>
+		<button id="button2">Obter</button>
+		
+		<hr>
+		<label for="nome" class="col-lg-2 control-label">Insira o IPFS HASH</label>
+		<button id="button3">Abrir Hash</button>
+        <input id="ipfsHash" type="text">
+		<p><h1>Lista de Hash</h1></p>
+		<p id="objetos"></p>
+
+    </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="/bundleWeb.js"></script>
+<script src="/bundlePinata.js"></script>
+</body>
+</html>
