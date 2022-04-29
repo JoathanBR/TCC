@@ -129,7 +129,7 @@ web3.eth.getAccounts(function(err, accounts){
 		var arrayHash = [];
 		for (var i = 0; i<arrayResultados.length; i++){
 			arrayHash.push(result.rows[i].ipfs_pin_hash);
-			document.querySelector('#objetos').innerHTML += arrayHash[i] + '<br>';
+			document.querySelector('#objetos').innerHTML += arrayResultados[i].metadata['name'] + ' - ' + arrayHash[i] + '<br>';
 		}
 		console.log(arrayHash);
 	}).catch((err) => {
