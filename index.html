@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-        <h1>Exemplo de dApp</h1>
+        <h1>Inclusão e consulta de identidades civis -  DApp - By: Joathan</h1>
         <h2 id="resultado"></h2>
         <label for="enderecoDaConta" class="col-lg-2 control-label">Hash da Conta de acesso:</label>
 		<h4 id="enderecoDaConta"></h4>
@@ -31,10 +31,31 @@
 		<button id="button3">Abrir Hash</button>
         <input id="ipfsHash" type="text">
 		<p><h1>Lista de Hash</h1></p>
-		<p id="objetos"></p>
+        <input id="searchbar" onkeyup="search_id()" type="text" name="search" placeholder="Pesquise o número da Identidade">
+		<p id="objetos">
+            <ul id="list">
+
+            </ul>
+        </p>
 
     </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="/bundleWeb3.js"></script>
+<script>
+    function search_id() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('itens');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";                 
+        }
+    }
+}
+</script>
 </body>
 </html>
