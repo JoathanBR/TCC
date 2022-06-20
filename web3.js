@@ -1,23 +1,23 @@
 const Web3 = require("web3");
 const pinataSDK = require('@pinata/sdk');
 const pinata = pinataSDK('dbbb3bf5244425d0af1e', '75654e2b4095f15558b94f9a86336066c7f16480731d58085fe17245133a87ec');
-
+let contaMetamesk = '';
 var web3 = new Web3(new Web3.providers.HttpProvider("HTTP://127.0.0.1:7545"));
 
-web3.eth.getAccounts(function(err, accounts){
-    if (err != null) {
-      console.log(err);
-    }
-    else if (accounts.length === 0) {
-      console.log('MetaMask is locked');
-	}
-    else {
-     web3.eth.defaultAccount = accounts[3];
-     //document.querySelector('#enderecoDaConta').innerHTML = web3.eth.defaultAccount;
-	 $("#enderecoDaConta").html(web3.eth.defaultAccount);
-	}
-   });
+const ethereumButton = document.querySelector('#button2');
+const showAccount = document.querySelector('#resultado');
 
+ethereumButton.addEventListener('click', () => {
+  getAccount();
+});
+
+async function getAccount() {
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  const account = accounts[0];
+  showAccount.innerHTML = account;
+  contaMetamesk = account;
+  return contaMetamesk;
+}
    var ABIContract = new web3.eth.Contract([
 	{
         "inputs": [],
@@ -66,7 +66,7 @@ web3.eth.getAccounts(function(err, accounts){
         "type": "function"
     }
 	], "0x9d579CB48eCed73B5Ba4dE607D2D7B0B8FF581f4", {
-    from: '0xf610af40D53c6116BFC524026B927A38AA64FdeC', // default from address
+    from: '0xcda3C0f33c6D92CEa47c2E912399272dc536b24D', // default from address
     gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
 });
       
@@ -84,6 +84,7 @@ web3.eth.getAccounts(function(err, accounts){
 			dataNascimento: dataNascimentoUser,
 			CPF: cpf
 		};
+
 
 		const options = {
 			pinataMetadata: {
